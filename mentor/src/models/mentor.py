@@ -3,6 +3,7 @@ MENTOR Framework: BBV (Bidirectional Bounded LDP Perturbation) + GLMF (Gaussian-
 Section IV End-to-End Pipeline.
 """
 
+import os
 import numpy as np
 from typing import Tuple
 from .glmf import GLMF
@@ -75,3 +76,37 @@ class MENTOR:
 
     def predict_full(self) -> np.ndarray:
         return self.glmf.predict_full()
+
+    def save(self, filepath: str):
+        """Save trained MENTOR model parameters (latent matrices U, V and mixture parameters)."""
+        os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
+        np.savez_compressed(
+            filepath,
+            U=self.glmf.U,
+            V=self.glmf.V,
+            pi=self.glmf.pi,
+            sigma=self.glmf.sigma,
+            b=self.glmf.b,
+            num_users=self.num_users,
+            num_items=self.num_items,
+            epsilon=self.epsilon,
+            domain=np.array(self.domain)
+        )
+        print(f"[OK] Trained model successfully saved to {filepath}")
+
+    @classmethod
+    def load(cls, filepath: str) -> 'MENTOR':
+        """Load trained MENTOR model parameters from disk."""
+        data = np.load(filepath)
+        model = cls(
+            num_users=int(data['num_users']),
+            num_items=int(data['num_items']),
+            epsilon=float(data['epsilon']),
+            domain=tuple(data['domain'])
+        )
+        model.glmf.U = data['U']
+        model.glmf.V = data['V']
+        model.glmf.pi = data['pi']
+        model.glmf.sigma = data['sigma']
+        model.glmf.b = data['b']
+        return model
