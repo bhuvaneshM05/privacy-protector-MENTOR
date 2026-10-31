@@ -1,0 +1,212 @@
+[
+  {
+    "epsilon": 0.1,
+    "model": "LapMF",
+    "rmse": 0.9829602270920298,
+    "f_measure": 0.031088082901554404,
+    "time_sec": 1.273022174835205
+  },
+  {
+    "epsilon": 0.1,
+    "model": "GauMF",
+    "rmse": 0.9662649184723978,
+    "f_measure": 0.010695187165775402,
+    "time_sec": 1.9376566410064697
+  },
+  {
+    "epsilon": 0.1,
+    "model": "GMF",
+    "rmse": 0.9482348736496589,
+    "f_measure": 0.0,
+    "time_sec": 1.7089505195617676
+  },
+  {
+    "epsilon": 0.1,
+    "model": "GLMF",
+    "rmse": 0.9563278121361034,
+    "f_measure": 0.0,
+    "time_sec": 1.2387967109680176
+  },
+  {
+    "epsilon": 0.1,
+    "model": "MENTOR",
+    "rmse": 0.9623418644732018,
+    "f_measure": 0.0,
+    "time_sec": 2.2193751335144043
+  },
+  {
+    "epsilon": 0.1,
+    "model": "NoPriv",
+    "rmse": 0.9413965783570909,
+    "f_measure": 0.0,
+    "time_sec": 1.3192455768585205
+  },
+  {
+    "epsilon": 0.3,
+    "model": "LapMF",
+    "rmse": 0.9799807828410835,
+    "f_measure": 0.03125,
+    "time_sec": 1.3291902542114258
+  },
+  {
+    "epsilon": 0.3,
+    "model": "GauMF",
+    "rmse": 0.9662649184723978,
+    "f_measure": 0.010695187165775402,
+    "time_sec": 1.8998255729675293
+  },
+  {
+    "epsilon": 0.3,
+    "model": "GMF",
+    "rmse": 0.9482348736496589,
+    "f_measure": 0.0,
+    "time_sec": 1.7614951133728027
+  },
+  {
+    "epsilon": 0.3,
+    "model": "GLMF",
+    "rmse": 0.9563278121361034,
+    "f_measure": 0.0,
+    "time_sec": 1.082289218902588
+  },
+  {
+    "epsilon": 0.3,
+    "model": "MENTOR",
+    "rmse": 0.9615261128501503,
+    "f_measure": 0.0,
+    "time_sec": 2.1558640003204346
+  },
+  {
+    "epsilon": 0.3,
+    "model": "NoPriv",
+    "rmse": 0.9413965783570909,
+    "f_measure": 0.0,
+    "time_sec": 1.3192455768585205
+  },
+  {
+    "epsilon": 0.5,
+    "model": "LapMF",
+    "rmse": 0.9756651732004736,
+    "f_measure": 0.020833333333333336,
+    "time_sec": 1.2529706954956055
+  },
+  {
+    "epsilon": 0.5,
+    "model": "GauMF",
+    "rmse": 0.9662649184723978,
+    "f_measure": 0.010695187165775402,
+    "time_sec": 2.2152910232543945
+  },
+  {
+    "epsilon": 0.5,
+    "model": "GMF",
+    "rmse": 0.9482348736496589,
+    "f_measure": 0.0,
+    "time_sec": 1.737269401550293
+  },
+  {
+    "epsilon": 0.5,
+    "model": "GLMF",
+    "rmse": 0.9563278121361034,
+    "f_measure": 0.0,
+    "time_sec": 1.347104787826538
+  },
+  {
+    "epsilon": 0.5,
+    "model": "MENTOR",
+    "rmse": 0.9593835211752436,
+    "f_measure": 0.0,
+    "time_sec": 2.0641562938690186
+  },
+  {
+    "epsilon": 0.5,
+    "model": "NoPriv",
+    "rmse": 0.9413965783570909,
+    "f_measure": 0.0,
+    "time_sec": 1.3192455768585205
+  },
+  {
+    "epsilon": 0.7,
+    "model": "LapMF",
+    "rmse": 0.9723048318479521,
+    "f_measure": 0.02105263157894737,
+    "time_sec": 2.521658182144165
+  },
+  {
+    "epsilon": 0.7,
+    "model": "GauMF",
+    "rmse": 0.9662649184723978,
+    "f_measure": 0.010695187165775402,
+    "time_sec": 5.343867778778076
+  },
+  {
+    "epsilon": 0.7,
+    "model": "GMF",
+    "rmse": 0.9482348736496589,
+    "f_measure": 0.0,
+    "time_sec": 4.986203908920288
+  },
+  {
+    "epsilon": 0.7,
+    "model": "GLMF",
+    "rmse": 0.9563278121361034,
+    "f_measure": 0.0,
+    "time_sec": 3.5421907901763916
+  },
+  {
+    "epsilon": 0.7,
+    "model": "MENTOR",
+    "rmse": 0.9481347277222775,
+    "f_measure": 0.0,
+    "time_sec": 5.986306428909302
+  },
+  {
+    "epsilon": 0.7,
+    "model": "NoPriv",
+    "rmse": 0.9413965783570909,
+    "f_measure": 0.0,
+    "time_sec": 1.3192455768585205
+  },
+  {
+    "epsilon": 1.0,
+    "model": "LapMF",
+    "rmse": 0.9678054390965184,
+    "f_measure": 0.021276595744680854,
+    "time_sec": 3.7878706455230713
+  },
+  {
+    "epsilon": 1.0,
+    "model": "GauMF",
+    "rmse": 0.9662649184723978,
+    "f_measure": 0.010695187165775402,
+    "time_sec": 5.224382638931274
+  },
+  {
+    "epsilon": 1.0,
+    "model": "GMF",
+    "rmse": 0.9482348736496589,
+    "f_measure": 0.0,
+    "time_sec": 5.299522399902344
+  },
+  {
+    "epsilon": 1.0,
+    "model": "GLMF",
+    "rmse": 0.9563278121361034,
+    "f_measure": 0.0,
+    "time_sec": 3.519296407699585
+  },
+  {
+    "epsilon": 1.0,
+    "model": "MENTOR",
+    "rmse": 0.9629107520671514,
+    "f_measure": 0.0,
+    "time_sec": 6.172867774963379
+  },
+  {
+    "epsilon": 1.0,
+    "model": "NoPriv",
+    "rmse": 0.9413965783570909,
+    "f_measure": 0.0,
+    "time_sec": 1.3192455768585205
+  }
+]
