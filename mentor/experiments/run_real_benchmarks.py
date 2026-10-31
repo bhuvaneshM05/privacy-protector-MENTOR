@@ -46,7 +46,7 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
     print(f"\n[*] Loading {dataset_name.upper()} dataset from: {csv_file}")
     t0 = time.time()
     full_ds = load_dataset(csv_file, sep=',', has_header=True, user_col='user_id', item_col='item_id', rating_col='rating')
-    print(f"[✓] Loaded {full_ds.num_observed:,} ratings | {full_ds.num_users:,} users | {full_ds.num_items:,} items in {time.time()-t0:.2f}s")
+    print(f"[OK] Loaded {full_ds.num_observed:,} ratings | {full_ds.num_users:,} users | {full_ds.num_items:,} items in {time.time()-t0:.2f}s")
     
     # Optional subsampling for testing
     if sample_fraction < 1.0:
@@ -70,7 +70,7 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
             num_users=len(u_map),
             num_items=len(i_map)
         )
-        print(f"[✓] Subsampled dataset ready: {full_ds.num_observed:,} ratings ({full_ds.num_users:,} users, {full_ds.num_items:,} items)")
+        print(f"[OK] Subsampled dataset ready: {full_ds.num_observed:,} ratings ({full_ds.num_users:,} users, {full_ds.num_items:,} items)")
 
     # 80/20 train/test split (exact paper ratio)
     print("\n[*] Creating 80/20 train/test split...")
@@ -137,7 +137,7 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
     csv_out = os.path.join(res_dir, f"real_{dataset_name}_results.csv")
     df_res = pd.DataFrame(results)
     df_res.to_csv(csv_out, index=False)
-    print(f"\n[✓] Results saved to: {csv_out}")
+    print(f"\n[OK] Results saved to: {csv_out}")
 
     # Laplace Rationality Check on real data
     rat = evaluate_laplace_rationality(train_ds.ratings[:50000], epsilon=0.5, seed=seed)
@@ -184,7 +184,7 @@ def plot_real_results(df: pd.DataFrame, dataset_name: str, save_path: str):
     plt.tight_layout()
     plt.savefig(save_path, dpi=300)
     plt.close()
-    print(f"[✓] Performance plot saved: {save_path}")
+    print(f"[OK] Performance plot saved: {save_path}")
 
 
 if __name__ == "__main__":

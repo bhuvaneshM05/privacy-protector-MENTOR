@@ -42,3 +42,6 @@ mentor/data/*_clean.csv
 data/*_raw.txt
 data/*_clean.csv
 data/ratings_data.txt
+
+# Compressed archives
+*.bz2
