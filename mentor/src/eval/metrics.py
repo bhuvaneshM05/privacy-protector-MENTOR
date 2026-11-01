@@ -12,12 +12,18 @@ def calc_rmse(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     return float(np.sqrt(np.mean((y_true - y_pred)**2)))
 
 
-def calc_f_measure(y_true: np.ndarray, y_pred: np.ndarray, threshold: float = 4.0) -> float:
+def calc_f_measure(y_true: np.ndarray, y_pred: np.ndarray, threshold: float = None) -> float:
     """
     Compute F-Measure (F1 Score) for recommendation utility.
-    True relevant: y_true >= threshold
-    Predicted relevant: y_pred >= threshold
+    If threshold is None, dynamically uses the dataset's median rating
+    (ensuring balanced evaluation across skewed real rating distributions).
     """
+    if threshold is None:
+        threshold = float(np.median(y_true))
+    elif threshold > np.max(y_pred):
+        # If fixed threshold is beyond predicted range, fall back to median
+        threshold = float(np.median(y_pred))
+        
     actual_positives = (y_true >= threshold)
     pred_positives = (y_pred >= threshold)
     
@@ -33,7 +39,7 @@ def calc_f_measure(y_true: np.ndarray, y_pred: np.ndarray, threshold: float = 4.
     return float(2.0 * (precision * recall) / (precision + recall))
 
 
-def evaluate_model(model, test_dataset: RatingDataset, threshold: float = 4.0) -> Dict[str, float]:
+def evaluate_model(model, test_dataset: RatingDataset, threshold: float = None) -> Dict[str, float]:
     """
     Evaluate a fitted model on test set ratings.
     """

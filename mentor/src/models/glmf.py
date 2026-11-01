@@ -147,9 +147,9 @@ class GLMF:
             for inner_ep in range(sgd_inner_epochs):
                 self.sgd_step(dataset, gamma, seed=seed + epoch * 100 + inner_ep)
                 
-            # Convergence check on \pi
+            # Convergence check on \pi after sufficient warm-up
             delta_pi = np.max(np.abs(self.pi - prev_pi))
-            if delta_pi < self.em_threshold and epoch > 3:
+            if delta_pi < self.em_threshold and epoch >= 8:
                 break
             prev_pi = self.pi.copy()
             

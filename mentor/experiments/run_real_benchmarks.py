@@ -83,8 +83,8 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
     # 2. Non-private Baseline (NoPriv / PMF)
     print("\n[*] Training NoPriv (PMF) ground truth baseline...")
     t0 = time.time()
-    nopriv = PMF(num_users=full_ds.num_users, num_items=full_ds.num_items, latent_dim=15, seed=seed)
-    nopriv.fit(train_ds, num_epochs=10, seed=seed)
+    nopriv = PMF(num_users=full_ds.num_users, num_items=full_ds.num_items, latent_dim=15, learning_rate=0.002, seed=seed)
+    nopriv.fit(train_ds, num_epochs=12, seed=seed)
     t_nopriv = time.time() - t0
     m_nopriv = evaluate_model(nopriv, test_ds)
     print(f"    NoPriv -> RMSE: {m_nopriv['rmse']:.4f}, F-Measure: {m_nopriv['f_measure']:.4f}, Time: {t_nopriv:.1f}s")
@@ -94,8 +94,8 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
         
         # LapMF Baseline
         t0 = time.time()
-        lapmf = LapMF(num_users=full_ds.num_users, num_items=full_ds.num_items, epsilon=eps, latent_dim=15, seed=seed)
-        lapmf.fit(train_ds, num_epochs=10, seed=seed)
+        lapmf = LapMF(num_users=full_ds.num_users, num_items=full_ds.num_items, epsilon=eps, latent_dim=15, learning_rate=0.002, seed=seed)
+        lapmf.fit(train_ds, num_epochs=12, seed=seed)
         t_lap = time.time() - t0
         m_lap = evaluate_model(lapmf, test_ds)
         print(f"    LapMF  -> RMSE: {m_lap['rmse']:.4f}, F-Measure: {m_lap['f_measure']:.4f}, Time: {t_lap:.1f}s")
@@ -103,8 +103,8 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
 
         # GauMF Baseline
         t0 = time.time()
-        gaumf = GauMF(num_users=full_ds.num_users, num_items=full_ds.num_items, num_components=5, latent_dim=15, seed=seed)
-        gaumf.fit(train_ds, max_em_epochs=5, sgd_inner_epochs=1, seed=seed)
+        gaumf = GauMF(num_users=full_ds.num_users, num_items=full_ds.num_items, num_components=5, latent_dim=15, learning_rate=0.002, seed=seed)
+        gaumf.fit(train_ds, max_em_epochs=8, sgd_inner_epochs=2, seed=seed)
         t_gau = time.time() - t0
         m_gau = evaluate_model(gaumf, test_ds)
         print(f"    GauMF  -> RMSE: {m_gau['rmse']:.4f}, F-Measure: {m_gau['f_measure']:.4f}, Time: {t_gau:.1f}s")
@@ -112,8 +112,8 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
 
         # GLMF Baseline
         t0 = time.time()
-        glmf = GLMF(num_users=full_ds.num_users, num_items=full_ds.num_items, num_components=5, alpha=0.5, latent_dim=15, seed=seed)
-        glmf.fit(train_ds, max_em_epochs=5, sgd_inner_epochs=1, seed=seed)
+        glmf = GLMF(num_users=full_ds.num_users, num_items=full_ds.num_items, num_components=5, alpha=0.5, latent_dim=15, learning_rate=0.002, seed=seed)
+        glmf.fit(train_ds, max_em_epochs=8, sgd_inner_epochs=2, seed=seed)
         t_glmf = time.time() - t0
         m_glmf = evaluate_model(glmf, test_ds)
         print(f"    GLMF   -> RMSE: {m_glmf['rmse']:.4f}, F-Measure: {m_glmf['f_measure']:.4f}, Time: {t_glmf:.1f}s")
@@ -121,8 +121,8 @@ def run_real_benchmark(dataset_name="epinions", sample_fraction=1.0, epsilons=[0
 
         # MENTOR (BBV + GLMF)
         t0 = time.time()
-        mentor = MENTOR(num_users=full_ds.num_users, num_items=full_ds.num_items, epsilon=eps, num_components=5, alpha=0.5, latent_dim=15, seed=seed)
-        mentor.fit(train_ds, max_em_epochs=5, sgd_inner_epochs=1, seed=seed)
+        mentor = MENTOR(num_users=full_ds.num_users, num_items=full_ds.num_items, epsilon=eps, num_components=5, alpha=0.5, latent_dim=15, learning_rate=0.002, seed=seed)
+        mentor.fit(train_ds, max_em_epochs=8, sgd_inner_epochs=2, seed=seed)
         t_mentor = time.time() - t0
         m_mentor = evaluate_model(mentor, test_ds)
         print(f"    MENTOR -> RMSE: {m_mentor['rmse']:.4f}, F-Measure: {m_mentor['f_measure']:.4f}, Time: {t_mentor:.1f}s")
